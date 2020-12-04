@@ -14,7 +14,7 @@ const Login = ({navigation, theme}) => {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [showPassword, setShowPassword] = React.useState(true);
-
+  
   return (
     <Container customStyle={{paddingLeft: 0, paddingRight: 0}}>
       <Welcome title="Welcome back!" subtitle="Login." />
