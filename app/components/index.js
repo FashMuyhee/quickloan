@@ -1,4 +1,4 @@
 import Container from './Container';
-import Onborading from './Onborading';
+import Welcome from './Welcome';
 
-export {Container,Onborading};
+export {Container, Welcome};
