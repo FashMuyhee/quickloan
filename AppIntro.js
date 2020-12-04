@@ -1,9 +1,9 @@
-import {TabRouter} from '@react-navigation/native';
 import React from 'react';
 import {Image, StyleSheet, View, StatusBar} from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import {Text, withTheme} from 'react-native-paper';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import App from './App';
 
 const slides = [
   {
@@ -33,6 +33,7 @@ const PERSISTENCE_KEY = 'APPINTRO_STATE';
 
 const AppIntro = ({theme}) => {
   const {colors} = theme;
+  const [appIntro, setAppIntro] = React.useState(false);
 
   const _renderItem = ({item}) => {
     return (
@@ -45,15 +46,8 @@ const AppIntro = ({theme}) => {
     );
   };
 
-  const _renderDoneButton = () => {
-    return (
-      <View style={styles.done}>
-        <Text>Done</Text>
-      </View>
-    );
-  };
   const _renderSkipButton = () => {
-    return <Text style={{color: 'red'}}>Skip</Text>;
+    return <Text>Skip</Text>;
   };
 
   return (
@@ -76,7 +70,9 @@ const AppIntro = ({theme}) => {
         doneLabel="Let's Go!"
         showNextButton={false}
         _renderSkipButton={_renderSkipButton}
-        onDone={() => AsyncStorage.setItem(PERSISTENCE_KEY, 'finish')}
+        onDone={() => {
+          AsyncStorage.setItem(PERSISTENCE_KEY, 'finish');
+        }}
       />
     </>
   );
