@@ -6,7 +6,7 @@ import {
   CardStyleInterpolators,
   TransitionPresets,
 } from '@react-navigation/stack';
-
+import {Login, Register} from '../screens/auth';
 
 const Stack = createStackNavigator();
 
@@ -15,12 +15,13 @@ const StackNavigator = () => {
     <NavigationContainer>
       <Stack.Navigator
         headerMode="none"
-        initialRouteName="first"
+        initialRouteName="login"
         screenOptions={{
           gestureEnabled: true,
           cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
         }}>
-        
+        <Stack.Screen name="login" component={Login} />
+        <Stack.Screen name="register" component={Register} />
       </Stack.Navigator>
     </NavigationContainer>
   );
