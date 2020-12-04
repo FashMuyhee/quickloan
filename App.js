@@ -19,6 +19,11 @@ const theme = {
     light: '#f0f0f0',
     grey: '#f4f4f4',
   },
+  font: {
+    regular: 'Open Sans Regular',
+    medium: 'Open Sans SemiBold',
+    light: 'Open Sans Light',
+  },
 };
 
 const PERSISTENCE_KEY = 'APPINTRO_STATE';
