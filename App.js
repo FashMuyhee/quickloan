@@ -7,6 +7,7 @@ import {
 } from 'react-native-paper';
 import AppIntro from './AppIntro';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import StackNavigator from './app/navigation/Stack';
 
 const theme = {
   ...DefaultTheme,
@@ -15,15 +16,17 @@ const theme = {
     primary: '#8f00bf',
     accent: '#e3cbec',
     secondary: '#b700f4',
-    text: '#5e5c5e',
+    text: 'black',
     light: '#f0f0f0',
-    grey: '#f4f4f4',
+    grey: '#8A8A8A',
   },
   font: {
-    regular: 'Open Sans Regular',
-    medium: 'Open Sans SemiBold',
-    light: 'Open Sans Light',
+    regular: 'Open Sans',
+    medium: 'Open Sans',
+    light: 'Open Sans',
   },
+  roundness: 4,
+
 };
 
 const PERSISTENCE_KEY = 'APPINTRO_STATE';
@@ -52,7 +55,12 @@ export default function Main() {
 
   return (
     <PaperProvider theme={theme}>
-      {introState ? <Text>App</Text> : <AppIntro />}
+      <StatusBar
+        backgroundColor={theme.colors.primary}
+        barStyle="light-content"
+      />
+
+      {introState ? <StackNavigator /> : <AppIntro />}
     </PaperProvider>
   );
 }
