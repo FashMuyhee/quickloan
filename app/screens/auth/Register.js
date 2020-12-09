@@ -58,7 +58,7 @@ const Register = ({navigation, theme}) => {
 
         <Button
           mode="contained"
-          onPress={() => navigation.navigate('register')}
+          onPress={() => navigation.navigate('verification')}
           style={styles.myBtn}>
           SIGN UP
         </Button>

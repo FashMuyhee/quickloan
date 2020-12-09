@@ -53,7 +53,7 @@ const Login = ({navigation, theme}) => {
         </TouchableRipple>
         <Button
           mode="contained"
-          onPress={() => navigation.navigate('register')}
+          onPress={() => navigation.navigate('verification')}
           style={styles.myBtn}>
           Login
         </Button>
