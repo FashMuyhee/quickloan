@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     flexDirection: 'row',
-    height: '30%',
+    height: '23%',
   },
   heroImg: {
     resizeMode: 'contain',
