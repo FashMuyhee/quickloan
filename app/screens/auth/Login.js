@@ -14,7 +14,7 @@ const Login = ({navigation, theme}) => {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [showPassword, setShowPassword] = React.useState(true);
-  
+
   return (
     <Container customStyle={{paddingLeft: 0, paddingRight: 0}}>
       <Welcome title="Welcome back!" subtitle="Login." />
@@ -87,8 +87,8 @@ export default withTheme(Login);
 
 const styles = StyleSheet.create({
   myBtn: {
-    paddingTop: 15,
-    paddingBottom: 15,
+    paddingTop: 10,
+    paddingBottom: 10,
   },
   hero: {
     display: 'flex',
