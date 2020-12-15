@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {Image, StyleSheet, View, StatusBar} from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider';
-import {Text, withTheme} from 'react-native-paper';
+import {Text} from 'react-native-paper';
+import {AppContext} from './app/store/AppContext';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import App from './App';
 
 const slides = [
   {
@@ -29,11 +29,8 @@ const slides = [
   },
 ];
 
-const PERSISTENCE_KEY = 'APPINTRO_STATE';
-
-const AppIntro = ({theme}) => {
-  const {colors} = theme;
-  const [appIntro, setAppIntro] = React.useState(false);
+const AppIntro = ({navigation}) => {
+  const [app_state, setAppState] = useContext(AppContext);
 
   const _renderItem = ({item}) => {
     return (
@@ -50,35 +47,37 @@ const AppIntro = ({theme}) => {
     return <Text>Skip</Text>;
   };
 
+  const _handleAppIntroFinish = () => {
+    setAppState(true);
+  };
+
   return (
     <>
-      <StatusBar backgroundColor={theme.colors.light} barStyle="dark-content" />
+      <StatusBar backgroundColor="#f0f0f0" barStyle="dark-content" />
       <AppIntroSlider
         renderItem={_renderItem}
         data={slides}
         activeDotStyle={{
-          backgroundColor: colors.primary,
+          backgroundColor: '#8F00BF',
           width: 70,
         }}
         dotStyle={{
           width: 70,
-          backgroundColor: colors.light,
+          backgroundColor: '#f0f0f0',
         }}
         bottomButton
         skipLabel="Skip"
         showSkipButton
-        doneLabel="Let's Go!"
+        doneLabel="Let's Go !"
         showNextButton={false}
         _renderSkipButton={_renderSkipButton}
-        onDone={() => {
-          AsyncStorage.setItem(PERSISTENCE_KEY, 'finish');
-        }}
+        onDone={_handleAppIntroFinish}
       />
     </>
   );
 };
 
-export default withTheme(AppIntro);
+export default AppIntro;
 
 const styles = StyleSheet.create({
   intro_title: {

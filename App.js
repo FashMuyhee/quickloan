@@ -26,7 +26,6 @@ const theme = {
     light: 'Open Sans',
   },
   roundness: 4,
-
 };
 
 const PERSISTENCE_KEY = 'APPINTRO_STATE';
@@ -49,9 +48,9 @@ export default function Main() {
     }
   };
 
-  React.useEffect(() => {
+  /*  React.useEffect(() => {
     checkAppIntro();
-  }, [introState]);
+  }, [introState]); */
 
   return (
     <PaperProvider theme={theme}>
@@ -60,7 +59,8 @@ export default function Main() {
         barStyle="light-content"
       />
 
-      {introState ? <StackNavigator /> : <AppIntro />}
+      {/* {introState ? <StackNavigator /> : <AppIntro />} */}
+      <StackNavigator />
     </PaperProvider>
   );
 }
