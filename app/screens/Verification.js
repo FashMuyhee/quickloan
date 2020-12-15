@@ -24,31 +24,33 @@ const Verification = ({navigation, theme}) => {
           <View style={{...styles.dot, backgroundColor: colors.primary}} />
           <View style={{...styles.dot, backgroundColor: colors.grey}} />
         </View>
-        <Picker
-          mode="dropdown"
-          selectedValue={picker}
-          style={styles.picker}
-          onValueChange={(itemValue) => setPicker(itemValue)}>
-          <Picker.Item label="Select Bank" value="Select Bank" />
-          <Picker.Item label="Ecobank" value="ecobank" />
-          <Picker.Item label="UBA" value="uba" />
-          <Picker.Item label="GTB" value="gtb" />
-          <Picker.Item label="First Bank" value="first_bank" />
-          <Picker.Item label="Wema Bank" value="wema_bank" />
-        </Picker>
-        <TextInput
-          label="Account Number"
-          style={styles.input}
-          keyboardType="numeric"
-          maxLength={11}
-        />
-        <Button
-          mode="contained"
-          onPress={() => navigation.navigate('verification_two')}
-          style={styles.myBtn}>
-          Procced
-        </Button>
-        <View style={{marginTop: '40%', padding: '12%'}}>
+        <View style={{marginTop: '20%'}}>
+          <Picker
+            mode="dropdown"
+            selectedValue={picker}
+            style={styles.picker}
+            onValueChange={(itemValue) => setPicker(itemValue)}>
+            <Picker.Item label="Select Bank" value="Select Bank" />
+            <Picker.Item label="Ecobank" value="ecobank" />
+            <Picker.Item label="UBA" value="uba" />
+            <Picker.Item label="GTB" value="gtb" />
+            <Picker.Item label="First Bank" value="first_bank" />
+            <Picker.Item label="Wema Bank" value="wema_bank" />
+          </Picker>
+          <TextInput
+            label="Account Number"
+            style={styles.input}
+            keyboardType="numeric"
+            maxLength={11}
+          />
+          <Button
+            mode="contained"
+            onPress={() => navigation.navigate('verification_two')}
+            style={styles.myBtn}>
+            Procced
+          </Button>
+        </View>
+        <View style={{marginTop: '50%', padding: '12%'}}>
           <Paragraph style={styles.footer}>
             By inputing your Bank Details, you agree with our
             <Text> Terms & Conditions</Text> and <Text> Privacy Policy.</Text>
@@ -79,11 +81,6 @@ const styles = StyleSheet.create({
   },
   heroText: {
     paddingLeft: '7%',
-  },
-  form: {
-    // marginTop: '7%',
-    borderColor: 'red',
-    borderWidth: 2,
   },
   input: {
     backgroundColor: 'white',

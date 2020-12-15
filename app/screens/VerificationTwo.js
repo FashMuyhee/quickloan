@@ -27,22 +27,32 @@ const VerificationTwo = ({navigation, theme}) => {
           <View style={{...styles.dot, backgroundColor: colors.grey}} />
           <View style={{...styles.dot, backgroundColor: colors.primary}} />
         </View>
-        <Paragraph style={{color: colors.grey, fontSize: 16,marginTop:10}}>
-          Input Bank Verification Number
-        </Paragraph>
-        <MaskedTextInput
-          customMask={myCustomMask}
-          keyboardType="numeric"
-          style={styles.input}
-          autoFocus
-        />
-        <Button
-          mode="contained"
-          onPress={() => navigation.navigate('dashboard')}
-          style={styles.myBtn}>
-          Done
-        </Button>
-        <View style={{marginTop: '60%', padding: '12%'}}>
+        <View style={{marginTop: '25%'}}>
+          <Paragraph
+            style={{
+              color: colors.grey,
+
+              fontSize: 20,
+              marginLeft: '6%',
+              marginTop: '5%',
+              marginBottom: '-3%',
+            }}>
+            Input Bank Verification Number
+          </Paragraph>
+          <MaskedTextInput
+            customMask={myCustomMask}
+            keyboardType="numeric"
+            style={styles.input}
+            autoFocus
+          />
+          <Button
+            mode="contained"
+            onPress={() => navigation.navigate('dashboard')}
+            style={styles.myBtn}>
+            Done
+          </Button>
+        </View>
+        <View style={{marginTop: '50%', padding: '12%'}}>
           <Paragraph style={styles.footer}>
             By inputing your BVN, you agree with our
             <Text> Terms & Conditions</Text> and <Text> Privacy Policy.</Text>
