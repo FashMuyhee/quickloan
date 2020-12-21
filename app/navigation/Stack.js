@@ -5,7 +5,7 @@ import {
   CardStyleInterpolators,
 } from '@react-navigation/stack';
 import {Login, Register} from '../screens/auth';
-import {VerificationTwo, Verification} from '../screens';
+import {VerificationTwo, Verification, Dashboard} from '../screens';
 import TabNavigator from './Tab';
 import AppIntro from '../../AppIntro';
 import {AppContext} from '../store/AppContext';
@@ -18,27 +18,25 @@ const StackNavigator = () => {
   const [app_state, setAppState] = useContext(AppContext);
 
   return (
-    <NavigationContainer>
-      <Stack.Navigator
-        headerMode="none"
-        initialRouteName="login"
-        screenOptions={{
-          gestureEnabled: true,
-          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
-        }}>
-        {app_state ? (
-          <>
-            <Stack.Screen name="login" component={Login} />
-            <Stack.Screen name="register" component={Register} />
-            <Stack.Screen name="verification" component={Verification} />
-            <Stack.Screen name="verification_two" component={VerificationTwo} />
-            <Stack.Screen name="dashboard" component={TabNavigator} />
-          </>
-        ) : (
-          <Stack.Screen name="app_intro" component={AppIntro} />
-        )}
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Stack.Navigator
+      headerMode="none"
+      initialRouteName="dashboard"
+      screenOptions={{
+        gestureEnabled: true,
+        cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+      }}>
+      {app_state ? (
+        <>
+          <Stack.Screen name="login" component={Login} />
+          <Stack.Screen name="register" component={Register} />
+          <Stack.Screen name="verification" component={Verification} />
+          <Stack.Screen name="verification_two" component={VerificationTwo} />
+          <Stack.Screen name="dashboard" component={Dashboard} />
+        </>
+      ) : (
+        <Stack.Screen name="app_intro" component={AppIntro} />
+      )}
+    </Stack.Navigator>
   );
 };
 
