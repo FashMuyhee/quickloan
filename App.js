@@ -7,7 +7,7 @@ import {
 } from 'react-native-paper';
 import AppIntro from './AppIntro';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import StackNavigator from './app/navigation/Stack';
+import DrawerNavigation from './app/navigation/Drawer';
 
 const theme = {
   ...DefaultTheme,
@@ -20,10 +20,10 @@ const theme = {
     light: '#f0f0f0',
     grey: '#8A8A8A',
   },
-  font: {
-    regular: 'Open Sans',
-    medium: 'Open Sans',
-    light: 'Open Sans',
+  fonts: {
+    regular: 'Open Sans Regular',
+    medium: 'Open Sans Semibold',
+    light: 'Open Sans Light',
   },
   roundness: 4,
 };
@@ -48,9 +48,9 @@ export default function Main() {
     }
   };
 
-  /*  React.useEffect(() => {
+   React.useEffect(() => {
     checkAppIntro();
-  }, [introState]); */
+  }, [introState]);
 
   return (
     <PaperProvider theme={theme}>
@@ -60,7 +60,7 @@ export default function Main() {
       />
 
       {/* {introState ? <StackNavigator /> : <AppIntro />} */}
-      <StackNavigator />
+      <DrawerNavigation />
     </PaperProvider>
   );
 }
