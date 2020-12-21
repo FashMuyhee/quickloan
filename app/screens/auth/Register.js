@@ -8,7 +8,7 @@ import {
   TextInput,
   TouchableRipple,
 } from 'react-native-paper';
-import {Container, Welcome} from '../../components';
+import {Container, Welcome, TextButton} from '../../components';
 const Register = ({navigation, theme}) => {
   const {colors} = theme;
   const [email, setEmail] = React.useState('');
@@ -37,7 +37,6 @@ const Register = ({navigation, theme}) => {
               name={showPassword ? 'eye-outline' : 'eye-off-outline'}
               onPress={() => setShowPassword(!showPassword)}
               color={colors.grey}
-
             />
           }
         />
@@ -72,18 +71,15 @@ const Register = ({navigation, theme}) => {
           }}>
           OR
         </Text>
-        <Button
-          mode="outlined"
-          style={{
-            ...styles.myBtn,
-            borderColor: 'black',
-          }}>
-          <Image
-            source={require('../../assets/images/google-icon.png')}
-            style={{marginRight: 30}}
-          />
-          <Text> SIGN UP USING GOOGLE</Text>
-        </Button>
+        <TouchableRipple style={styles.googleBtn}>
+          <>
+            <Image
+              source={require('../../assets/images/google-icon.png')}
+              style={{marginRight: 20}}
+            />
+            <Text> SIGN UP USING GOOGLE</Text>
+          </>
+        </TouchableRipple>
         <View
           style={{
             display: 'flex',
@@ -93,8 +89,8 @@ const Register = ({navigation, theme}) => {
             justifyContent: 'center',
             alignSelf: 'center',
           }}>
-          <Text style={{textAlign: 'center'}}>Already Have an account </Text>
-          <TouchableRipple onPress={() => navigation.navigate('login')}>
+          <TextButton onPress={() => navigation.navigate('login')}>
+            <Text style={{textAlign: 'center'}}>Already Have an account </Text>
             <Text
               style={{
                 textAlign: 'left',
@@ -103,7 +99,7 @@ const Register = ({navigation, theme}) => {
               }}>
               Login.
             </Text>
-          </TouchableRipple>
+          </TextButton>
         </View>
       </Container>
     </Container>
@@ -143,5 +139,17 @@ const styles = StyleSheet.create({
     width: '50%',
     paddingTop: 10,
     paddingBottom: 10,
+  },
+  googleBtn: {
+    display: 'flex',
+    flexDirection: 'row',
+    height: 60,
+    backgroundColor: 'transparent',
+    borderColor: 'black',
+    borderWidth: 1.5,
+    borderRadius: 5,
+    padding: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });

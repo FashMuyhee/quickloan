@@ -50,7 +50,7 @@ const Verification = ({navigation, theme}) => {
             Procced
           </Button>
         </View>
-        <View style={{marginTop: '50%', padding: '12%'}}>
+        <View style={{marginTop: '40%', padding: '12%'}}>
           <Paragraph style={styles.footer}>
             By inputing your Bank Details, you agree with our
             <Text> Terms & Conditions</Text> and <Text> Privacy Policy.</Text>

@@ -8,7 +8,7 @@ import {
   TextInput,
   TouchableRipple,
 } from 'react-native-paper';
-import {Container, Welcome} from '../../components';
+import {Container, Welcome, TextButton} from '../../components';
 const Login = ({navigation, theme}) => {
   const {colors} = theme;
   const [email, setEmail] = React.useState('');
@@ -66,17 +66,16 @@ const Login = ({navigation, theme}) => {
             justifyContent: 'center',
             alignSelf: 'center',
           }}>
-          <Text style={{textAlign: 'center'}}>Don't Have an account </Text>
-          <TouchableRipple onPress={() => navigation.navigate('register')}>
+          <TextButton onPress={() => navigation.navigate('register')}>
+            <Text style={{textAlign: 'center'}}>Don't Have an account </Text>
             <Text
               style={{
-                textAlign: 'left',
                 textTransform: 'capitalize',
                 color: colors.primary,
               }}>
               Register.
             </Text>
-          </TouchableRipple>
+          </TextButton>
         </View>
       </Container>
     </Container>
