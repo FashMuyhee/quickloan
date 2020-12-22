@@ -1,16 +1,23 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
+import {TouchableRipple} from 'react-native-paper';
+
 import PropTypes from 'prop-types';
 
-const Card = ({children, customStyle}) => {
+const Card = ({children, customStyle, onPress}) => {
   const style = {...styles.container, ...customStyle};
 
-  return <View style={style}>{children}</View>;
+  return (
+    <TouchableRipple onPress={onPress}>
+      <View style={style}>{children}</View>
+    </TouchableRipple>
+  );
 };
 
 Card.prototype = {
   children: PropTypes.element.isRequired,
   customStyle: PropTypes.object,
+  onPress: PropTypes.func,
 };
 
 export default Card;
@@ -23,11 +30,11 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 10,
     padding: 20,
-    elevation: 10,
     shadowColor: 'black',
     shadowOpacity: 0.26,
-    shadowOffset: {width: 0, height: 2},
-    shadowRadius: 10,
-    elevation: 3,
+    shadowOffset: {width: 0, height: 1},
+    shadowRadius: 2,
+    borderColor: '#f2f2f2',
+    borderWidth: 2,
   },
 });

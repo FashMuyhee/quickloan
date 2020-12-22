@@ -17,11 +17,13 @@ export default ScrollContainer;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#E5E5E5',
+    backgroundColor: '#fafafa',
+    // backgroundColor: '#E5E5E5',
     paddingLeft: 15,
     paddingRight: 15,
-    height: '100%',
+    // height: '100%',
     width: '100%',
-    paddingBottom: 40,
+    paddingBottom: 20,
+    paddingTop: 20,
   },
 });

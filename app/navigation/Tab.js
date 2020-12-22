@@ -11,7 +11,8 @@ const TabNavigator = () => {
     <Tab.Navigator
       activeColor="#8f00bf"
       inactiveColor="#8A8A8A"
-      barStyle={{backgroundColor: 'white', paddingTop: 5, paddingBottom: 5}}>
+      barStyle={{backgroundColor: 'white', paddingBottom: 5}}
+      initialRouteName="profile">
       <Tab.Screen
         name="Dashboard"
         component={StackNavigator}
@@ -31,7 +32,7 @@ const TabNavigator = () => {
         name="Loan"
         component={Loan}
         options={{
-          tabBarLabel: 'Loan',
+          tabBarLabel: 'My Loans',
           tabBarIcon: ({color}) => (
             <MaterialIcons
               name="list"
