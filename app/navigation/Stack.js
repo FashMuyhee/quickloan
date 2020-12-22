@@ -5,7 +5,14 @@ import {
   CardStyleInterpolators,
 } from '@react-navigation/stack';
 import {Login, Register} from '../screens/auth';
-import {VerificationTwo, Verification, Dashboard} from '../screens';
+import {
+  VerificationTwo,
+  Verification,
+  Dashboard,
+  LoanDetails,
+  GetLoan,
+  ApplyLoan,
+} from '../screens';
 import TabNavigator from './Tab';
 import AppIntro from '../../AppIntro';
 import {AppContext} from '../store/AppContext';
@@ -32,6 +39,9 @@ const StackNavigator = () => {
           <Stack.Screen name="verification" component={Verification} />
           <Stack.Screen name="verification_two" component={VerificationTwo} />
           <Stack.Screen name="dashboard" component={Dashboard} />
+          <Stack.Screen name="loan_details" component={LoanDetails} />
+          <Stack.Screen name="get_loan" component={GetLoan} />
+          <Stack.Screen name="apply_loan" component={ApplyLoan} />
         </>
       ) : (
         <Stack.Screen name="app_intro" component={AppIntro} />

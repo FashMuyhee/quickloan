@@ -8,6 +8,7 @@ import {
 import AppIntro from './AppIntro';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import DrawerNavigation from './app/navigation/Drawer';
+import OtherStackNavigator from './app/navigation/Navigator';
 
 const theme = {
   ...DefaultTheme,
@@ -48,14 +49,14 @@ export default function Main() {
     }
   };
 
-   React.useEffect(() => {
+  React.useEffect(() => {
     checkAppIntro();
   }, [introState]);
 
   return (
     <PaperProvider theme={theme}>
       <StatusBar
-        backgroundColor={theme.colors.primary}
+        backgroundColor={theme.colors.secondary}
         barStyle="light-content"
       />
 

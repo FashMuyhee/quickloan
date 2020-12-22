@@ -1,5 +1,11 @@
 import React from 'react';
-import {StyleSheet, View, ImageBackground, Dimensions} from 'react-native';
+import {
+  StyleSheet,
+  View,
+  ImageBackground,
+  Dimensions,
+  StatusBar,
+} from 'react-native';
 import {ScrollContainer, MyCard} from '../components';
 import {
   Appbar,
@@ -9,9 +15,6 @@ import {
   Headline,
   Chip,
   withTheme,
-  Card,
-  Button,
-  Paragragh,
 } from 'react-native-paper';
 import {LineChart} from 'react-native-chart-kit';
 
@@ -39,17 +42,25 @@ const Dashboard = ({theme, navigation}) => {
     propsForDots: {
       r: '6',
       strokeWidth: '2',
-      stroke: '#ffa726',
+      stroke: colors.secondary,
     },
   };
   return (
     <>
+      <StatusBar
+        backgroundColor={theme.colors.primary}
+        barStyle="light-content"
+      />
+
       <Appbar.Header>
         <Avatar.Image
           size={50}
           source={require('../assets/images/avatar.png')}
         />
-        <Appbar.Content title="Title" subtitle="Subtitle" />
+        <Appbar.Content
+          title="Hi, John Doe"
+          subtitle="Have a wonderful day..."
+        />
         <Appbar.Action
           icon="bell-outline"
           onPress={() => navigation.toggleDrawer()}
@@ -126,7 +137,7 @@ const Dashboard = ({theme, navigation}) => {
             <Text>Fixed 30day</Text>
           </View>
         </MyCard>
-        <MyCard customStyle={{height: 200}}>
+        <MyCard customStyle={{height: 200, marginBottom: 40}}>
           <View style={styles.cardHeader}>
             <Title>Total Balance</Title>
             <Text>Limits: ₦1,000,000.00</Text>
@@ -168,7 +179,7 @@ const styles = StyleSheet.create({
   totalBal: {},
   cardHeader: {
     borderBottomColor: '#8A8A8A',
-    borderBottomWidth: 1,
+    borderBottomWidth: 0.8,
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
